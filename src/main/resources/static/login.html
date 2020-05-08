@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <SCRIPT src="js/script.js"></SCRIPT>
+</head>
+<body style="font-family: Calibri; font-size: large">
+
+<center>
+    <div style="margin-top: 100px;">
+        <h1>Login</h1>
+        <form id="loginform" method="post">
+            <table cellspacing="10px" style="mso-cellspacing: 10px; border-width: 0;">
+                <tr>
+                    <td style="padding: 5px;">Enter username :</td>
+                    <td>
+                        <input type="text" style="padding: 5px; width: 100%" id="username"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px;">Enter password :</td>
+                    <td>
+                        <input type="password" style="padding: 5px; width: 100%" id="password"/>
+                    </td>
+                </tr>
+            </table>
+            <button type="button" onclick="login()" style="padding: 5px; margin-top: 10px; ">login</button><br>
+            <p id="message" style="color: darkred"></p>
+            <a href="signup.html" style="font-weight: bold">Click here to register</a>
+        </form>
+    </div>
+</center>
+
+</body>
+</html>

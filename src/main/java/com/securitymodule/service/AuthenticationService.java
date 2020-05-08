@@ -18,6 +18,7 @@ public class AuthenticationService {
         unauthenticatedUrls = new ArrayList<>();
         unauthenticatedUrls.add("/login");
         unauthenticatedUrls.add("/signup");
+        unauthenticatedUrls.add("/static/[a-zA-Z0-9_\\-./]*");
     }
 
 

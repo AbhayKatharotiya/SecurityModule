@@ -1,5 +1,7 @@
 package com.securitymodule.model;
 
+import javax.validation.constraints.NotBlank;
+
 public class LoginModel {
 
     private String username;
@@ -14,6 +16,7 @@ public class LoginModel {
         this.password = password;
     }
 
+    @NotBlank(message = "Please enter username")
     public String getUsername() {
         return username;
     }
@@ -22,6 +25,7 @@ public class LoginModel {
         this.username = username;
     }
 
+    @NotBlank(message = "Please enter password")
     public String getPassword() {
         return password;
     }

@@ -24,7 +24,6 @@ public class Controller {
         String result = service.authenticate(loginModel);
         if (result.equals(Constants.LOGIN_SUCCESSFUL)) {
             request.getSession().setAttribute("LOGIN_SESSION", loginModel.getUsername());
-            request.getSession().setMaxInactiveInterval(60);
         }
         return ResponseEntity.ok(result);
     }
