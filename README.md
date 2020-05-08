@@ -25,7 +25,14 @@
     mvn spring-boot:run
 ```
 
-## Explore apis 
+**4. Open url**  
+  
+Open following url.
+```
+   http://localhost:8080/static/index.html 
+```
+
+  ## Explore apis 
 
 The app defines following APIs. 
  
