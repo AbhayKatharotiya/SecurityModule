@@ -37,34 +37,33 @@ The app defines following APIs.
 ```
 
 #### /signup API
-* use following body in signup api
+* Use following body in signup api
 ```json
-{
-  "name" : "Your name",
-  "email" : "your valid email",
-  "contactNo" : "valid contactNo",
-  "address" : "your address",
-  "password" : "your password"
-}
+    {
+      "name" : "Your name",
+      "email" : "Your valid email",
+      "contactNo" : "Valid contact number",
+      "address" : "Your address",
+      "password" : "Your password"
+    }
 ```
 * In this body email and contact no should be valid 
 * Email will be unique field in database
 * API does not need authentication
 
 #### /login API
-* use following body in login api
+* Use following body in login api
 ```json
-{
-  "username" : "your email",
-  "password" : "your password"
-}
+    {
+      "username" : "Your email",
+      "password" : "Your password"
+    }
 ```
 * Here username will be your registered email.
 * API does not need authentication
 
 #### /logout API
 * This api will destroy your session
-* API does not need authentication
 
 #### / API
 * This api will return ` 200 OK ` if authenticated
