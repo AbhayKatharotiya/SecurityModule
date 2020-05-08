@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Component
 public class AuthenticationService {
@@ -21,6 +23,15 @@ public class AuthenticationService {
 
     public boolean isAuthorizedUrl(String uri) {
         uri = uri.trim();
-        return !unauthenticatedUrls.contains(uri);
+        Pattern pattern;
+        for(String unauthorizedUrl : unauthenticatedUrls){
+            pattern = Pattern.compile(unauthorizedUrl);
+            Matcher matcher = pattern.matcher(uri);
+            if (matcher.matches()){
+                return false;
+            }
+
+        }
+        return true;
     }
 }

@@ -1,5 +1,6 @@
 package com.securitymodule.controller;
 
+import com.securitymodule.exception.RequestUnauthorizedException;
 import com.securitymodule.model.Constants;
 import com.securitymodule.model.LoginModel;
 import com.securitymodule.model.User;

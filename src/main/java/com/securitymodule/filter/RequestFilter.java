@@ -1,12 +1,12 @@
 package com.securitymodule.filter;
 
-import com.securitymodule.exception.RequestUnauthorizedException;
 import com.securitymodule.model.User;
 import com.securitymodule.repository.UserRepository;
 import com.securitymodule.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -33,17 +33,16 @@ public class RequestFilter implements Filter {
             String email;
             try {
                 email = httpServletRequest.getSession().getAttribute("LOGIN_SESSION").toString();
-            } catch (Exception e) {
-                throw new RequestUnauthorizedException("Unauthorized");
-            }
-            if (email != null) {
                 User user = userRepository.findByEmail(email);
                 if (user == null) {
-                    throw new RequestUnauthorizedException("Unauthorized");
+                    httpServletResponse.sendError(HttpStatus.UNAUTHORIZED.value(),"Unauthorized");
                 }
-            } else
-                throw new RequestUnauthorizedException("Unauthorized");
+                filterChain.doFilter(httpServletRequest, httpServletResponse);
+            } catch (Exception e) {
+                httpServletResponse.sendError(HttpStatus.UNAUTHORIZED.value(),"Unauthorized");
+            }
+        }else {
+            filterChain.doFilter(httpServletRequest, httpServletResponse);
         }
-        filterChain.doFilter(httpServletRequest, httpServletResponse);
     }
 }
